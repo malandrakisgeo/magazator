@@ -12,20 +12,23 @@ public class UsersEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-
     private String username;
     private String password;
     private String roles;
     private String enabled;
     private String email;
     private Date dateCreated;
-
     private String verification;
+    private Byte verified;
 
     @Id
     @Column(name = "id")
     public int getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setId(int id) {
@@ -114,5 +117,15 @@ public class UsersEntity {
 
     public void setVerification(String verification) {
         this.verification = verification;
+    }
+
+    @Basic
+    @Column(name = "verified")
+    public Byte getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Byte verified) {
+        this.verified = verified;
     }
 }
